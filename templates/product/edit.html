@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ekart | addproduct</title>
+</head>
+
+<body>
+    <h1 align="center">Edit Product</h1>
+
+    <form method="post">
+
+        {% csrf_token %}
+        {% for x in products %}
+        <table align="center" cellspacing="50px">
+            <tr>
+                <td><strong>Name</strong></td>
+                <td><input type="text" name="pname" id="" placeholder="{{x.name}}"></td>
+            </tr>
+            <tr>
+                <td><strong>price</strong></td>
+                <td><input type="number" name="price" id="" placeholder="{{x.price}}"></td>
+            </tr>
+            <tr>
+                <td><strong>Quantity</strong></td>
+                <td><input type="number" name="qty" id="" placeholder="{{x.qty}}"></td>
+            </tr>
+            <tr>
+                <td><strong>Category</strong></td>
+                <td><select name="cat" id="">
+                        {% if x.cat == 1 %}
+                        <option value="1" selected>Mobiles</option>
+                        <option value="2">Shoes</option>
+                        <option value="3">Cloths</option>
+                        {% elif x.cat == 2 %}
+                        <option value="1">Mobiles</option>
+                        <option value="2" selected>Shoes</option>
+                        <option value="3">Cloths</option>
+                        {% elif x.cat == 3 %}
+                        <option value="1">Mobiles</option>
+                        <option value="2">Shoes</option>
+                        <option value="3" selected>Cloths</option>
+                        {% endif %}
+                    </select></td>
+            </tr>
+            <tr>
+                <td><strong>Is Availabale</strong></td>
+                <td>
+                    {% if x.is_available == 1 %}
+                    <input type="radio" value="1" name="avail" id="" checked>Yes
+                    <input type="radio" value="0" name="avail" id="">No
+                    {% elif x.is_available == 0 %}
+                    <input type="radio" value="1" name="avail" id="">Yes
+                    <input type="radio" value="0" name="avail" id="" checked>No
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="edit product"></td>
+            </tr>
+        </table>
+        {% endfor %}
+    </form>
+
+    <a href="/productapp/productdash"><button>Back</button></a>
+
+</body>
+
+</html>

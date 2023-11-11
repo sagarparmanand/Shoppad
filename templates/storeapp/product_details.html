@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'main' %}
+
+  <!-- main section -->
+
+  <div class="row mt-5">
+   
+    <div class="col-md-4">
+        <img src="{{pdata.pimages.url}}" class="card-img-top" alt="..." width="100%" height="400px">
+    </div>
+
+    <div class="col-md-5">
+        <h3>Products Details</h3>
+        <h4>{{pdata.name}}</h4>
+        
+        <hr>
+        <h6>Offers</h6>
+        <h5>Rs.{{pdata.price}}</h5>
+        <!-- <h5>{{pdata.pdiscount}}% off</h5> -->
+        <!-- <h5><del>Rs.{{pdata.price}}</del></h5> -->
+        <!-- <h4>Rs.{{discount}}</h4> -->
+        <!-- <h6>You're saving Rs.{{saving}}</h6> -->
+        <hr>
+        <h6>About This Product</h6>
+        <p>{{pdata.pdetails}}</p>
+
+    </div>
+   
+
+    <div class="col-md-3">
+        <a href="/cart/{{pdata.id}}"><button class="btn btn-primary" type="submit">Add To Cart</button></a>
+        <button class="btn btn-primary" type="submit">Buy</button> <br> <br>
+        {% if msg1 %}
+        <div class="alert alert-danger">
+            {{msg1}}
+        </div>
+        {% endif %}
+
+        {% if msg2 %}
+        <div class="alert alert-success">
+            {{msg2}} <br>
+            <a href="/pcart">Go To Cart</a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<!-- main section end -->
+
+{% endblock 'main' %}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+</head>
+
+<body>
+    <h1>Hello From HomePage!! </h1>
+
+    <h3>Yo {{msg}}</h3>
+
+    <hr><br>
+
+    {% if x > y %}
+    {{x}} is greater
+
+    {% else %}
+    {{y}} is greater
+
+    {% endif %}
+
+    <hr>
+    {{data}}
+    <br>
+
+{% for x in data %}
+    {{x}}
+{% endfor %}
+
+</body>
+
+</html>

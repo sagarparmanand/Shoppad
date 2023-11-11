@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'main' %}
+
+      <!-- main section -->
+
+      <div class="row mt-5">
+        <div class="col-md-2 bg-body-secondary rounded-3">
+            <h4>filter by name</h4>
+            <p><a href="/" class="anchor">All</a></p>
+            <p><a href="/cartfilter/1" class="anchor">Mobiles</a></p>
+            <p><a href="/cartfilter/2" class="anchor">Shoes</a></p>
+            <p><a href="/cartfilter/3" class="anchor">Cloths</a></p>
+
+            <h4>filter by price</h4>
+            <form action="/price_range">
+              <div class="mb-3 ">
+                <label for="Input1" class="form-label">Min</label>
+                <input type="number" class="form-control" id="Input1" name="min" placeholder="Minimum price">
+            </div>
+            <div class="mb-3 ">
+                <label for="Input2" class="form-label">Max</label>
+                <input type="number" class="form-control" id="Input2" name="max" placeholder="Maximum price">
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-danger rounded-4">search</button>
+                
+            </div>
+            </form>
+            <div>
+              {% if errmsg %}
+              <div class="alert alert-danger">
+                {{errmsg}}
+              </div>
+              {% endif %}
+            </div>
+
+            <h4>sort by price</h4>
+            <p><a href="/sort?q=asc" class="anchor">Low To High</a></p>
+            <p><a href="/sort?q=desc" class="anchor">High To Low</a></p>
+        </div>
+
+        <div class="col-md-10">
+            <div class="row">
+
+              {% for x in pdata %}
+              <div class="col-md-3 mb-4">
+                <div class="card" style="width: 100%;">
+                    <img src="{{x.pimages.url}}" class="card-img-top" alt="..." width="100%" height="300px">
+                    <div class="card-body">
+                      <h5 class="card-title">{{x.name}}</h5>
+                      <!-- <h5>{{x.pdiscount}}% off</h5> -->
+                      <p class="card-text">Price: {{x.price}}</p>
+                      
+                      {% if x.cat == 1 %}
+                      <p class="card-text">Mobile</p>
+                      {% elif x.cat == 2 %}
+                      <p class="card-text">Shoes</p>
+                      {% else %}
+                      <p class="card-text">Cloths</p>
+                      {% endif %}
+                      <a href="/pproduct_details/{{x.id}}" class="btn btn-primary">see details</a>
+                    </div>
+                  </div>
+            </div>
+              {% endfor %}
+
+              
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- main section end -->
+
+{% endblock 'main' %}

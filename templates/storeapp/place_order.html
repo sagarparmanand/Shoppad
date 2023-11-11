@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'main' %}
+
+  <!-- main section -->
+
+  <div class="row mt-5">
+    <div class="col-md-9">
+        <div class="col-md-12">
+            <h5 class="bg-primary text-white p-2 ">User Details</h5>
+            <table class="table table-borderless">
+                <tr>
+                    <th>Name</th>
+                    <td>{{user.username}}</td>
+
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>{{user.email}}</td>
+                </tr>
+                <tr>
+                    <th>Number</th>
+                    <td>8424512485</td>
+                </tr>
+            </table>
+            
+        </div>
+
+
+
+
+        <h5 class="bg-primary text-white p-2 ">Order Details</h5>
+
+        {% for x in orders %}
+        <div class="row">
+            <div class="col-md-4">
+                <img src="{{x.pid.pimages.url}}" class="card-img-top" alt="...">
+            </div>
+
+            <div class="col-md-8">
+                <table class="table table-borderless">
+                    <tr>
+                        <th>Order Number</th>
+                        <td>{{x.order_id}}</td>
+                    </tr>
+                    <tr>
+                        <th>Product Name</th>
+                        <td>{{x.pid.name}}</td>
+                    </tr>
+                    <tr>
+                        <th>Price</th>
+                        <td>{{x.pid.price}}</td>
+                    </tr>
+                    <tr>
+                        <th>Category</th>
+                        {% if x.pid.cat == 1 %}
+                        <td class="card-text">Mobile</td>
+                        {% elif x.pid.cat == 2 %}
+                        <td class="card-text">Shoes</td>
+                        {% else %}
+                        <td class="card-text">Cloths</td>
+                        {% endif %}
+                    </tr>
+            
+                    <tr>
+                        <th>
+                            <a href="/cancel_order/{{x.id}}"><button class="btn btn-outline-primary" type="submit">Remove</button></a>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="col-md-3">
+        <h5 class="bg-primary text-white p-2 ">Order Details</h5>
+        <table class="table table-borderless">
+            <tr>
+                <th>Quantity</th>
+                <td>{{n}}</td>
+            </tr>
+            <tr>
+                <th>Total</th>
+                <td>{{amt}}</td>
+            </tr>
+            
+            <tr>
+                <th>
+                    <a href="/makepayment"><button class="btn btn-outline-primary" type="submit">Make Payment</button></a>
+                </th>
+            </tr>
+        </table>
+    </div>
+</div>
+
+ <!-- main section end-->
+
+{% endblock 'main' %}

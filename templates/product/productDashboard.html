@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dash Board</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <h1 align="center">Products Dashboard</h1>
+
+    <a href="/productapp/addproduct"><button onclick="conf()">Add Product</button></a>
+
+    <table border="1" align="center" cellspacing="50px">
+        <tr>
+            <th>Sr No.</th>
+            <th>Product Name</th>
+            <th>Price Per Item</th>
+            <th>Quantity</th>
+            <th>Category</th>
+            <th>Is Availabale ?</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        {% for x in products %}
+
+        <tr>
+            <th>{{x.id}}</th>
+            <th>{{x.name}}</th>
+            <th>{{x.price}}</th>
+            <th>{{x.qty}}</th>
+            <!-- <th>{{x.cat}}</th> -->
+                {% if x.cat == 1 %}
+                <th>Mobile</th>
+                {% elif x.cat == 2 %}
+                <th>Shoes</th>
+                {% else %}
+                <th>Cloths</th>
+                {% endif %}
+            <!-- <th>{{x.is_available}}</th> -->
+            {% if x.is_available == 1 %}
+            <th>Yes</th>
+            {% else %}
+            <th>No</th>
+            {% endif %}
+            <th><a href="/productapp/edit/{{x.id}}">edit</a></th>
+            <th><a href="/productapp/delete/{{x.id}}">delete</a></th>
+        </tr>
+
+        {% endfor %}
+    </table>
+
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>

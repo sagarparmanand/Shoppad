@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'main' %}
+
+<div class="row mt-3">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        {% if errmsg %}
+        <div class="alert alert-danger">
+            {{errmsg}}
+        </div>
+        {% endif %}
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+            <table class="table">
+                <tr>
+                    
+                    <td align="center" colspan="2"><img src="{{udata.uimage.url}}" alt=""></td>
+                    
+                </tr>
+                <tr>
+                    <th>Upload Image</th>
+                    <td><input type="file" name="uimg" accept="Image/*" required></td>
+                </tr>
+                <tr>
+                    <th>Username</th>
+                    <td>{{user.username}}</td>
+                </tr>
+                <tr>
+                    <th>First Name</th>
+                    <td><input type="text" name="fname" value="{{user.first_name}}"></td>
+                </tr>
+                <tr>
+                    <th>Last Name</th>
+                    <td><input type="text" name="lname" value="{{user.last_name}}"></td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td><input type="email" name="uemail" value="{{user.email}}"></td>
+                </tr>
+                
+                <tr>
+                    <th>Mobile No.</th>
+                    <td><input type="number" name="umob" value="{{udata.mobile_no}}"></td>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <td><input type="text" name="uadd" value="{{udata.uadd}}"></td>
+                </tr>
+                
+                <tr align="center">
+                    <th colspan="2">
+                        <!-- <a href="/account/update_profile"><button class="btn btn-danger" type="submit">update</button></a> -->
+                        <button class="btn btn-danger" type="submit">update</button>
+                    </th>
+                    
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+
+
+{% endblock 'main' %}
