@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block 'main' %}
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-8">
+            <h2 class="bg-dark text-white p-2">Product Details</h2>
+
+            {% for x in cdata %}
+            <div class="row cart_row my-3 bg-light">
+                <div class="col-md-4">
+                    <div class="cart_img p-3 h-100">
+                        <img src={{x.p_id.img1.url}} alt="" class="cart_img" width="100%" height="250px">
+                    </div>
+                </div>
+                <div class="col-md-7 p-3">
+                    <table class="table table-borderless">
+                        <tr>
+                            <td>Order Id:</td>
+                            <th>{{x.p_id.pcat}}</th>
+                        </tr>
+                        <tr>
+                            <td>Name:</td>
+                            <th>{{x.p_id.pname}}</th>
+                        </tr>
+                        <tr>
+                            <td>Price:</td>
+                            <th>{{x.p_id.fprice}}</th>
+                        </tr>
+                        <tr>
+                            <td>Size:</td>
+                            <th>{{x.size}}</th>
+                        </tr>
+                        <tr>
+                            <td>Quantity:</td>
+                            <th> <a href="/cart_qty/{{x.id}}?q=min" class="btn btn-dark">-</a>
+                                <input type="text" name="qty" value={{x.qty}} id="" readonly>
+                                <a href="/cart_qty/{{x.id}}?q=pluse" class="btn btn-dark">+</a>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="/cart_del/{{x.id}}" class="btn btn-dark">Remove</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <!-- <div class="col-md-4"></div> -->
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col-md-4">
+            <h2 class="bg-dark text-white p-2"> Total Product Details</h2>
+            <div class="row border border-dark my-3">
+                <div class="col-md-7">
+                    <table class="table table-borderless mt-3">
+                        <tr>
+                            <td>Quantity:</td>
+                            <th>{{q}}</th>
+                        </tr>
+                        <tr>
+                            <td>Total:</td>
+                            <th>Rs.{{amt}}</th>
+                        </tr>
+
+                        <tr>
+
+                            <td colspan="2">
+                                <hr>
+                                <!-- <a href="place_order.html" class="btn btn-dark">Make Payment</a> -->
+                                <!-- <a onclick="del('{{user.id}}')" class="btn btn-dark">Make Payment</a> -->
+                                <a onclick="del()" class="btn btn-dark">Make Payment</a>
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4"></div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script type="">
+    {% if succ %}
+    swal({
+    title: "Order Placed Successfully",
+    text: "{{succ}}",
+    icon: "success",
+    })
+{% endif %}
+
+// function del(d) {
+function del() {
+            swal({
+    title: "Make Payment!",
+    // text: "Make Payment!",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+    })
+    .then((willDelete) => {
+    if (willDelete) {
+            // window.location.href="http://127.0.0.1:8000/payment/"+d
+            window.location.href="http://127.0.0.1:8000/payment"
+    }    });
+
+}
+</script>
+
+{% endblock 'main' %}

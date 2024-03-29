@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <title>Mens Collections</title>
+    <style>
+        body {
+            background-color: #ebf4f7;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container my-5">
+        <div class="row mt-5">
+            <div class="col-md-4 mt-5 m-auto shadow-lg rounded-4">
+                <h2 align="center" class="mb-5">Add Products</h2>
+                {% if errmsg %}
+                <div class="alert alert-danger">
+                    {{errmsg}}
+                </div>
+                {% endif %}
+
+                {% if success %}
+                <div class="alert alert-success">
+                    {{success}} <br>
+                    <a href="/account/login" class="anchor">Please login</a>
+                </div>
+                {% endif %}
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Name:</label>
+                            <input type="text" name="cname" class="form-control" id="recipient-name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Category: &nbsp;</label>
+                            <select name="cat" id="" required>
+                                <option value="Mens">Men's</option>
+                                <option value="Womens">Women's</option>
+                                <option value="Kids">Kids</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Sub-Category: &nbsp;</label>
+                            <select name="scat" id="" required>
+                                <option value="Shirts">Shirts</option>
+                                <option value="TShirts">T-Shirts</option>
+                                <option value="Pants">Pants</option>
+                                <option value="Jeans">Jeans</option>
+                                <option value="Shorts">Shorts</option>
+                                <option value="Sarees">Sarees</option>
+                                <option value="Dress">Dress</option>
+                                <option value="Gown">Gown</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Price:</label>
+                            <input type="number" name="price" class="form-control" id="recipient-name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Discount:</label>
+                            <input type="number" name="discount" class="form-control" id="recipient-name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Available Sizes:</label>
+                            <input type="text" name="csize" class="form-control" id="recipient-name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Description:</label>
+                            <textarea class="form-control" id="message-text" name="cdesc"></textarea required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Image1:</label>
+                            <input type="file" name="img1" class="form-control" id="recipient-name" accept="Image/*" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Image2:</label>
+                            <input type="file" name="img2" class="form-control" id="recipient-name" accept="Image/*" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Image3:</label>
+                            <input type="file" name="img3" class="form-control" id="recipient-name" accept="Image/*" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Image4:</label>
+                            <input type="file" name="img4" class="form-control" id="recipient-name" accept="Image/*" required>
+                        </div>
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-dark">add</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+    <script src="/assets/js/main.js"></script>
+
+</body>
+
+</html>

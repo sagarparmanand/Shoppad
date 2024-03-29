@@ -1,0 +1,162 @@
+* {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+body {
+    background-color: #ebf4f7;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.nav-link,
+a {
+    transition: 0.4s;
+
+}
+
+.nav-link:hover {
+    transform: scale(1.1)
+}
+
+.dropdown-menu {
+    width: 300px !important;
+    height: auto;
+}
+
+/* carousal */
+.d-block {
+    height: 25rem;
+}
+
+/* Category */
+.cat {
+    width: 200px;
+    /* text-align: center; */
+    border: 3px solid black;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.cat_img {
+    border-radius: 50%;
+    height: 10rem;
+    transition-duration: 0.3s;
+}
+
+.cat_img:hover {
+    transform: scale(1.1);
+}
+
+/* Collections */
+
+.card {
+    transition-duration: 0.2s;
+    border: 3px solid black;
+}
+
+.card:hover {
+    box-shadow: 3px 3px 25px black;
+}
+
+.swip {
+    padding: 10px;
+}
+
+/*Mens Collections */
+.menu {
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: rgb(243, 252, 248);
+    box-shadow: 1px 3px 10px black;
+}
+
+/* Viwe Product */
+
+.img1 {
+    width: 20%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.img11 {
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.img11:hover {
+    border: 2px solid black;
+}
+
+.img2 {
+    width: 80%;
+}
+
+/* Admin Section */
+.tab {
+    height: 200px;
+    overflow: auto;
+}
+
+.product_details {
+    width: 170%;
+}
+
+.wrapper {
+    /* overflow: scroll; */
+    max-height: 500px;
+}
+
+.p_desc {
+    width: 400px;
+}
+
+.p_name {
+    width: 200px;
+}
+
+
+
+/*                                                    Responsive  */
+
+@media screen and (max-width: 480px) {
+    .menu {
+        display: none;
+    }
+
+/* Details  */
+.product{
+    flex-wrap: wrap;
+}
+
+.img1 {
+    display: flex;
+    position: absolute;
+    margin-top: 24rem;
+    width: 350px;
+    padding: 1px;
+    box-sizing: border-box;
+}
+
+.img11 {
+    width: 300px;
+}
+
+.img2 {
+    width: 350px;
+}
+#main_img {
+    height: 350px;
+}
+.detail{
+    width: 98%;
+    border: 2px solid black;
+    margin-top: 9rem;
+}
+
+/* .mens-collections,.swip,.card{
+    width: 75rem;
+} */
+
+}

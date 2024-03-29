@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block 'main' %}
+
+    <div class="container my-5">
+        <div class="row my-5">
+            <div class="col-md-12">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12952.223037715494!2d72.98898703303013!3d19.186200243752598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7bed57458ea2b%3A0x9ff5deb5d3f2392b!2sBhola%20Nagar%2C%20Kalwa%2C%20Thane%2C%20Maharashtra%20400605!5e0!3m2!1sen!2sin!4v1697051845344!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        
+            <div class="col-md-6 mt-5">
+                <i class="bi bi-building-fill"></i>
+                <h5>Coperative Office</h5>
+                <hr>
+                <p>samshan galli <br>
+                    gate No.3</p>
+                <p>Andheri East</p>
+            </div>
+        
+            <div class="col-md-6 mt-5">
+                <h5 style="margin-top: 24px;">Contact Form</h5>
+                <hr>
+                <form action="">
+                    <div class="mb-3 ">
+                        <label for="Input1" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="Input1" name="uname" placeholder="EnterName">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Input2" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="Input2" name="umail" placeholder="Enter email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Input3" class="form-label">Number</label>
+                        <input type="number" class="form-control" id="Input3" name="unumber" placeholder="Enter Number">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Textarea1" class="form-label">Feedback</label>
+                        <textarea class="form-control" id="Textarea1" rows="3"></textarea>
+                      </div>
+                    <div class="mb-3">
+        
+                        <button class="btn btn-primary" type="submit">send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    {% endblock 'main' %}
